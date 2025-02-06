@@ -53,8 +53,12 @@ if match_names:
 else:
     st.warning("No match files found in the 'Matches' folder.")
 
-st.write("DataFrame Loaded:", df if 'df' in locals() else "df is not defined")
-player = st.selectbox("Select A Player - ", df['playerName'].sort_values().unique(), index = None)
+if 'playerName' in df.columns:
+    player = st.selectbox("Select A Player", df['playerName'].dropna().sort_values().unique())
+else:
+    st.error("Column 'playerName' not found in the dataset.")
+    st.write("Columns available:", df.columns)
+
 
 def filter_data(df, player):
     if player:
