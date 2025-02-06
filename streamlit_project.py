@@ -6,7 +6,7 @@ import numpy as np
 
 from mplsoccer.pitch import Pitch, VerticalPitch
 
-st.title("Indian Super League 2024-25")
+st.title("Indian Super League 2024-25.")
 st.subheader("Actions and Heat Map of all players in the match.")
 
 df = pd.read_csv("Mohun Bagan vs Punjab.csv")
@@ -28,7 +28,7 @@ for id_col, value_col in zip(qualifier_id_cols, qualifier_value_cols):
         lambda row: row[value_col] if row[id_col] == 141 else row['end_y'], axis=1
     )
 
-player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
+player = st.selectbox("Select A Player - ", df['playerName'].sort_values().unique(), index = None)
 
 def filter_data(df, player):
     if player:
