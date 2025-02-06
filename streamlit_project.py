@@ -53,9 +53,8 @@ if match_names:
 else:
     st.warning("No match files found in the 'Matches' folder.")
 
-
-
-player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
+st.write("DataFrame Loaded:", df if 'df' in locals() else "df is not defined")
+player = st.selectbox("Select A Player - ", df['playerName'].sort_values().unique(), index = None)
 
 def filter_data(df, player):
     if player:
