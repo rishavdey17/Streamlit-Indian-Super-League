@@ -54,7 +54,7 @@ else:
     st.warning("No match files found in the 'Matches' folder.")
 
 
-player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
+#player = st.selectbox("Select A Player - ", df['playerName'].sort_values().unique(), index = None)
 
 def filter_data(df, player):
     if player:
