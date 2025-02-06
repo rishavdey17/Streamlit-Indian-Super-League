@@ -53,9 +53,11 @@ if match_names:
 else:
     st.warning("No match files found in the 'Matches' folder.")
 
+if not df.empty and "Player Name" in df.columns:
+    player = st.selectbox("Select A Player", df["Player Name"].dropna().sort_values().unique())
+else:
+    st.error("⚠️ No valid data found! Check file loading.")
 
-
-player = st.selectbox("Select A Player", df['Player Name'].sort_values().unique(), index = None)
 
 def filter_data(df, player):
     if player:
