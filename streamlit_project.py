@@ -53,15 +53,12 @@ if match_names:
 else:
     st.warning("No match files found in the 'Matches' folder.")
 
-if not df.empty and "Player Name" in df.columns:
-    player = st.selectbox("Select A Player", df["Player Name"].dropna().sort_values().unique())
-else:
-    st.error("⚠️ No valid data found! Check file loading.")
 
+player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
 
 def filter_data(df, player):
     if player:
-        df = df[df['Player Name'] == player]
+        df = df[df['playerName'] == player]
 
     return df
 
@@ -162,5 +159,3 @@ endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit.
 plt.figtext(0.515, 0.11, endnote, ha="center", va="top", fontsize=13, color="white")
 
 st.pyplot(fig)
-
-
