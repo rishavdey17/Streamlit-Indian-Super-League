@@ -55,11 +55,11 @@ else:
 
 
 
-player = st.selectbox("Select A Player", df['playerName'].sort_values().unique(), index = None)
+player = st.selectbox("Select A Player", df['Player Name'].sort_values().unique(), index = None)
 
 def filter_data(df, player):
     if player:
-        df = df[df['playerName'] == player]
+        df = df[df['Player Name'] == player]
 
     return df
 
