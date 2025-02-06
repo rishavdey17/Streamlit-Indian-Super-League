@@ -78,8 +78,8 @@ def plot_actions(df, ax, pitch):
     ax.scatter(aerial_won['y'], aerial_won['x'], s = 100, c = '#9999ff', marker = '^', edgecolor = '#000000', label = 'Aerial Won')
     ax.scatter(offside['y'], offside['x'], s= 120, c = 'r', marker = 'P', edgecolor = '#000000', label = 'Offside Provoked')
     ax.scatter(shield['y'], shield['x'], s = 120, c = '#dd571c', marker = 'H', edgecolor = '#000000', label = 'Shielding Ball Out')
-    ax.scatter(punch['x'], punch['y'], s = 100, c = '#ff007f', marker = '^', edgecolor = '#000000', label = 'Keeper Punch')
-    ax.scatter(pickup['x'], pickup['y'], s = 100, c = '#dd571c', marker = 'P', edgecolor = '#000000', label = 'Keeper Pick-Up')
+    ax.scatter(punch['y'], punch['x'], s = 100, c = '#ff007f', marker = '^', edgecolor = '#000000', label = 'Keeper Punch')
+    ax.scatter(pickup['y'], pickup['x'], s = 100, c = '#dd571c', marker = 'P', edgecolor = '#000000', label = 'Keeper Pick-Up')
 
     ax.legend(loc = 'best', bbox_to_anchor=(1.16,0.01), framealpha = 0.6, ncol = 4, edgecolor = '#000000')
 
