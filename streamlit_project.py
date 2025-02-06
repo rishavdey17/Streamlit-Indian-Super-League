@@ -42,7 +42,6 @@ def plot_actions(df, ax, pitch):
     block = df[df['typeId'] == 10]
     clearance = df[df['typeId'] == 12]
 
-
     foul = df[df['typeId'] == 4]
     foul_won = foul[foul['outcome'] == 1]
 
@@ -53,6 +52,9 @@ def plot_actions(df, ax, pitch):
     aerial_won = aerial[aerial['outcome'] == 1]
 
     passes = df[df['typeId'] == 1]
+
+    pickup = df[df['typeId'] == 52]
+    punch = df[df['typeId'] == 41]
 
     kde = pitch.kdeplot(
                   passes.x, passes.y,ax = ax,
@@ -71,11 +73,13 @@ def plot_actions(df, ax, pitch):
     ax.scatter(tackle['y'], tackle['x'], s= 100,c = 'w', marker = ',', edgecolor = '#000000', label = 'Tackle')
     ax.scatter(recovery['y'], recovery['x'], s= 100, c = '#ffea00', marker = ',', edgecolor = '#000000', label = 'Ball Recovery')
     ax.scatter(interception['y'], interception['x'], s = 100, c = '#ff007f', marker = ',', edgecolor = '#000000', label = 'Interception')
-    ax.scatter(block['y'], block['x'], s = 100, c = '#008080', marker = ',', edgecolor = '#000000', label ='Block')
+    ax.scatter(block['y'], block['x'], s = 100, c = '#008080', marker = ',', edgecolor = '#000000', label ='Block/Save')
     ax.scatter(clearance['y'], clearance['x'], s = 120, c = '#dd571c', marker = '^', edgecolor = '#000000', label = 'Clearance')
     ax.scatter(aerial_won['y'], aerial_won['x'], s = 100, c = '#9999ff', marker = '^', edgecolor = '#000000', label = 'Aerial Won')
     ax.scatter(offside['y'], offside['x'], s= 120, c = 'r', marker = 'P', edgecolor = '#000000', label = 'Offside Provoked')
     ax.scatter(shield['y'], shield['x'], s = 120, c = '#dd571c', marker = 'H', edgecolor = '#000000', label = 'Shielding Ball Out')
+    ax.scatter(punch['x'], punch['y'], s = 100, c = '#ff007f', marker = '^', edgecolor = '#000000', label = 'Keeper Punch')
+    ax.scatter(pickup['x'], pickup['y'], s = 100, c = '#dd571c', marker = 'P', edgecolor = '#000000', label = 'Keeper Pick-Up')
 
     ax.legend(loc = 'best', bbox_to_anchor=(1.16,0.01), framealpha = 0.6, ncol = 4, edgecolor = '#000000')
 
