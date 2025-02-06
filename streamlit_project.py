@@ -160,3 +160,5 @@ endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit.
 plt.figtext(0.515, 0.11, endnote, ha="center", va="top", fontsize=13, color="white")
 
 st.pyplot(fig)
+
+
