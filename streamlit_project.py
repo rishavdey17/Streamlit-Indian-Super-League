@@ -31,7 +31,7 @@ if match_names:
     file_path = os.path.join(MATCHES_DIR, f"{selected_match}.csv")  # Correct path
 
     if os.path.exists(file_path):
-        df = pd.read_csv(file_path, encoding="utf-8", errors="ignore")
+        df = pd.read_csv(file_path, encoding="latin-1")
         st.write(f"Loaded data for: {selected_match}")
 
         # Extract columns containing '/qualifierId' and '/value'
@@ -160,3 +160,5 @@ endnote = "Made by Rishav. Data Source: OPTA. Built Using: Python and Streamlit.
 plt.figtext(0.515, 0.11, endnote, ha="center", va="top", fontsize=13, color="white")
 
 st.pyplot(fig)
+
+
